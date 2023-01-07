@@ -36,12 +36,16 @@ filename = f'vehicles_{current_date}.xlsx'
 workbook = xlsxwriter.Workbook(filename)
 worksheet = workbook.add_worksheet()
 
+# Add header row
+headers = list(vehicles[0].keys())
+worksheet.write_row(0, 0, headers)
+
 # Color cells based on ColorCode
 red_format = workbook.add_format({'color': '#b30000'})
 orange_format = workbook.add_format({'color': '#FFA500'})
 green_format = workbook.add_format({'color': '#007500'})
 
-for i, row in enumerate(vehicles):
+for i, row in enumerate(vehicles, start=1):
     for j, key in enumerate(row):
         if args.colored and key == 'hu' and row[key] is not None:
                 # Set cell's text color based on HU
@@ -59,6 +63,3 @@ for i, row in enumerate(vehicles):
 
 workbook.close()
 print(f'Saved as {filename}')
-
-
-
