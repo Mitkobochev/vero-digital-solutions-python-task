@@ -36,7 +36,7 @@ filename = f'vehicles_{current_date}.xlsx'
 workbook = xlsxwriter.Workbook(filename)
 worksheet = workbook.add_worksheet()
 
-# Add header row
+# Add header
 headers = list(vehicles[0].keys())
 worksheet.write_row(0, 0, headers)
 
