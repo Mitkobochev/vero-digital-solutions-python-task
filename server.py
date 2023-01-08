@@ -12,7 +12,7 @@ async def merge_vehicles(request: Request) -> list:
     rows = csv.split("\n")
     keys = rows[0].split(",")
     vehicles = [dict(zip(keys, row.split(","))) for row in rows[1:] if row]
-
+    
     # Request additional resources and merge with request body
     api_url = "https://api.baubuddy.de/dev/index.php/v1/vehicles/select/active"
     headers = {"Authorization": f"Bearer {updated_token}"}
