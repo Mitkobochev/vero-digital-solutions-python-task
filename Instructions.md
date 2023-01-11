@@ -4,6 +4,7 @@
 In this instruction, I will list all of the commands required to run this script.
 
 <font size = 4>Before running the server and client you need to install a few python packages:</font>
+<p><strong>Freeze</strong>: This package is used to create requirements.txt file.</p>
 <p><strong>Argparse</strong>: This package is used to parse command-line arguments.</p>
 <p><strong>Openpyxl</strong>: This package is used to create and modify Excel files.</p>
 <p><strong>Requests</strong>: This package is used to send HTTP requests.</p>
@@ -12,6 +13,7 @@ In this instruction, I will list all of the commands required to run this script
 
 To install these packages, you can use the following command:
 <strong>
+<p>pip install freeze-requirements</p>
 <p>pip install uvicorn</p>
 <p>pip install argparse</p>
 <p>pip install openpyxl</p>
