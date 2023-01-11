@@ -59,14 +59,14 @@ def color_cells(workbook,worksheet, vehicles, keys):
             else:
                 worksheet.write(i, j, row[key])
 
-def add_header(worksheet, vehicles):
+def add_headers(worksheet, headers):
     """
     Add headers to worksheet
     """
-    headers = list(vehicles[0].keys())
+    headers = list(headers[0].keys())
     worksheet.write_row(0, 0, headers)
 
-def save_to_excel(vehicles, colored, keys):
+def save_to_excel(data, colored, keys):
     """
     Save vehicles to excel
     """
@@ -75,15 +75,15 @@ def save_to_excel(vehicles, colored, keys):
     workbook = xlsxwriter.Workbook(filename)
     worksheet = workbook.add_worksheet()
 
-    add_header(worksheet, vehicles)
-    color_cells(workbook,worksheet, vehicles, colored)
+    add_headers(worksheet, data)
+    color_cells(workbook,worksheet, data, colored)
 
     workbook.close()
     print(f'Saved as {filename}')
 
 def main():
     """
-    This function call all above functions in order 
+    This function calls all above functions in order 
     """
     args = parse_args()
     data = read_csv('vehicles.csv')
@@ -94,4 +94,8 @@ def main():
     filename = f'vehicles_{current_date}.xlsx'
     save_to_excel(data, filename, args.colored)
 
-main()
+if __name__ == "__main__":
+    '''
+    I use this variable to avoid problems when running the unittest
+    '''
+    main()
